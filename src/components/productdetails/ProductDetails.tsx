@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import './productdetails.scss';
 import '../../shared/styles/buttonclasses.scss';
 import tape from '../../shared/images/frulle.gif';
-import IProduct, { IProductCategory } from '../../interfaces/iproduct';
+import IProduct from '../../interfaces/iproduct';
 import { IProductService, ProductService } from '../../services/ProductService';
 import { Link } from 'react-router-dom';
 import Message from '../message/Message';
@@ -18,16 +18,15 @@ interface IProductDetailsProps {
 
 export default function ProductDetails(props: IProductDetailsProps) {
 
-    const categories: IProductCategory[] = [];
+    const categories: number[] = [];
 
     const defaultProduct = {
-        name: '',
+        title: '',
         id: 0,
-        description: '',
-        imageUrl: '',
-        price: 0,
-        year: '',
-        productCategory: categories
+        overview: '',
+        poster_path: '',
+        release_date: '',
+        genre_ids: categories
     }
 
 
@@ -47,7 +46,7 @@ export default function ProductDetails(props: IProductDetailsProps) {
             const errorMessage: string = resultTuple[1];
             if(fetchedProduct){
                 setProduct(fetchedProduct);
-                setLoading(false);
+                setLoading(false); 
             }
             else{
                 setHasError(true);
@@ -56,7 +55,7 @@ export default function ProductDetails(props: IProductDetailsProps) {
             }    
         }
 
-        fetchProduct(`http://medieinstitutet-wie-products.azurewebsites.net/api/products/${id}`);
+        fetchProduct(`https://api.themoviedb.org/3/movie/${id}?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US`);
                
     }, [id]);
 
@@ -67,6 +66,13 @@ export default function ProductDetails(props: IProductDetailsProps) {
         props.onAddToCart(product);
     }
 
+
+    function getImageUrl(item: IProduct): string{
+        if(item.poster_path){
+            return `https://image.tmdb.org/t/p/w185${item.poster_path}`;
+        }
+        return 'https://i.postimg.cc/9MbvYYpr/kamera2.png';
+    }
     
 
     
@@ -91,10 +97,10 @@ export default function ProductDetails(props: IProductDetailsProps) {
 
                 <div className="text-wrapper">
 
-                    <h2 className="detail-name">{product.name}</h2>
-                    <p><b>{product.year}</b></p>
-                    <p className="detail-description">{product.description}</p>
-                    <p>Price: <b>{product.price}</b> SEK</p>
+                    <h2 className="detail-name">{product.title}</h2>
+                    <p><b>{(product.release_date)? product.release_date : ''}</b></p>
+                    <p className="detail-description">{(product.overview)? product.overview : ''}</p>
+                    <p>Price: <b>{200}</b> SEK</p>
                     
                     <button onClick={handleAdd} className="shop-btn movie-shop-button">Add to cart</button>
                     <Link to="/" className="link"><span className="shop-btn movie-shop-button">Back to products</span></Link>
@@ -103,7 +109,7 @@ export default function ProductDetails(props: IProductDetailsProps) {
 
                 
                 <div className="detail-image">
-                    <img src={product.imageUrl} alt={product.name}/>
+                    <img src={getImageUrl(product)} alt={product.title}/>
                 </div>
 
             </div>

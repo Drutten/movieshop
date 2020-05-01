@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';  //BrowserRouter in index.tsx
+import {Switch, Route} from 'react-router-dom';  //BrowserRouter in index.tsx
 import './App.scss';
 import Home from './components/home/Home';
 import About from './components/about/About';
@@ -12,9 +12,6 @@ import Cart from './components/cart/Cart';
 import IProduct from './interfaces/iproduct';
 import { ICartItem } from './interfaces/icartitem';
 import Checkout from './components/checkout/Checkout';
-import Admin from './components/admin/Admin';
-import OrderDetails from './components/orderdetails/OrderDetails';
-import AdminNavBar from './components/adminnavbar/AdminNavBar';
 import { ProductService } from './services/ProductService';
 
 
@@ -22,7 +19,6 @@ import { ProductService } from './services/ProductService';
 interface IAppState {
   cartItems: ICartItem[];
   toggledReload: boolean;
-  isLoggedIn: boolean;
 }
 
 
@@ -33,8 +29,7 @@ class App extends React.Component<{}, IAppState> {
 
     this.state = {
       cartItems: this.retrieveList('cartItems'),
-      toggledReload: false,
-      isLoggedIn: false
+      toggledReload: false
     }
 
     this.handleAddToCart = this.handleAddToCart.bind(this);
@@ -42,7 +37,6 @@ class App extends React.Component<{}, IAppState> {
     this.handleUpdateQuantity = this.handleUpdateQuantity.bind(this);
     this.handleClearCart = this.handleClearCart.bind(this);
     this.handleReload = this.handleReload.bind(this);
-    this.setLoggedIn = this.setLoggedIn.bind(this);
   }
   private productService = new ProductService();
 
@@ -59,7 +53,7 @@ class App extends React.Component<{}, IAppState> {
       }
     });
     if(!isInCart){
-      const cartItem = {product: addedProduct, quantity: 1, totalPrice: addedProduct.price}; 
+      const cartItem = {product: addedProduct, quantity: 1, price: 200, totalPrice: 200}; 
       const updatedCartItems = [...this.state.cartItems, cartItem];
       this.storeList(updatedCartItems, 'cartItems');
       this.setState({
@@ -143,23 +137,13 @@ class App extends React.Component<{}, IAppState> {
   }
 
 
-  setLoggedIn(){
-    let newLoggedStatus = (this.state.isLoggedIn)? false : true;
-    this.setState({
-      isLoggedIn: newLoggedStatus
-    });
-  }
-
-
-
-
   
   render(){
     return (
       <div className="App">
         <div className="App-container">
-          {(this.state.isLoggedIn)? <AdminNavBar onReload={this.handleReload} onLogIn={this.setLoggedIn}/> : <NavBar cartItems={this.state.cartItems} onReload={this.handleReload}/>}
-          
+
+          <NavBar cartItems={this.state.cartItems} onReload={this.handleReload}/>
           
           <Switch>
             <Route exact path="/">  
@@ -183,12 +167,7 @@ class App extends React.Component<{}, IAppState> {
             <Route exact path="/checkout">  
               <Checkout cartItems={this.state.cartItems} onClearCart={this.handleClearCart}/>
             </Route>
-            <Route exact path="/admin">  
-              <Admin toggledReload={this.state.toggledReload} onReload={this.handleReload} isLoggedIn={this.state.isLoggedIn} onLogIn={this.setLoggedIn}/>
-            </Route> 
-            <Route exact path="/admin/:id">
-              {this.state.isLoggedIn ? <OrderDetails/> : <Redirect to="/admin"/>}
-            </Route>  
+            
             <Route path="*"> 
               <NoPage/>
             </Route>

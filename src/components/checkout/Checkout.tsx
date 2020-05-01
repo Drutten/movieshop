@@ -4,7 +4,6 @@ import '../../shared/styles/buttonclasses.scss';
 import { ICartItem } from '../../interfaces/icartitem';
 import { INewOrder } from '../../interfaces/ineworder';
 import { INewOrderRow } from '../../interfaces/ineworderrow';
-import { OrderService } from '../../services/OrderService';
 import Message from '../message/Message';
 import { Link } from 'react-router-dom';
 
@@ -18,8 +17,6 @@ interface ICheckoutProps {
 interface ICheckoutState {
     order: INewOrder;
     isSuccessful: boolean;
-    hasError: boolean;
-    errorMessage: string;
 }
 
 
@@ -34,18 +31,15 @@ class Checkout extends React.Component<ICheckoutProps, ICheckoutState> {
                 createdBy: '',
                 paymentMethod: '',
                 totalPrice: 0,
-                status: 0,
                 orderRows: []   
             },
-            isSuccessful: false,
-            hasError: false,
-            errorMessage: ''
+            isSuccessful: false
         }    
     }
-    private orderService = new OrderService();
+    private information: string = '';
 
-
-
+    
+    
     createOrderRows(): INewOrderRow[] {
         const orderRows: INewOrderRow[] = this.props.cartItems.map((item)=>{
             return {ProductId: item.product.id, Amount: item.quantity};
@@ -58,48 +52,11 @@ class Checkout extends React.Component<ICheckoutProps, ICheckoutState> {
     calculateTotal(): number {
         let total: number = 0;
         this.props.cartItems.forEach((item)=> {
-            total += (item.product.price * item.quantity);
+            total += (item.price * item.quantity);
         });
         return total;
     }
 
-    
-    
-    async postNewOrder(data: INewOrder) {
-        let message = await this.orderService.postOrder('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', data);
-        if(message){
-            console.log(message);
-            this.setState({
-                order: {
-                    companyId: 0, 
-                    created: '',
-                    createdBy: '',
-                    paymentMethod: '',
-                    totalPrice: 0,
-                    status: 0,
-                    orderRows: []    
-                },
-                hasError: true,
-                errorMessage: message
-            });
-        }
-        else{
-            this.props.onClearCart();
-            this.setState({
-                order: {
-                    companyId: 0, 
-                    created: '',
-                    createdBy: '',
-                    paymentMethod: '',
-                    totalPrice: 0,
-                    status: 0,
-                    orderRows: []    
-                },
-                isSuccessful: true 
-            });
-        }
-    }
-    
 
 
     handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -121,13 +78,24 @@ class Checkout extends React.Component<ICheckoutProps, ICheckoutState> {
         if(this.state.order.createdBy && this.state.order.paymentMethod && this.props.cartItems.length){
             let updatedOrder = {...this.state.order};
             updatedOrder.companyId = 707;
-            updatedOrder.created = new Date().toISOString();
+            updatedOrder.created = new Date().toLocaleString();
             updatedOrder.totalPrice = this.calculateTotal();
-            updatedOrder.status = 2;
             updatedOrder.orderRows = this.createOrderRows();
             
-            this.postNewOrder(updatedOrder);
-             
+            this.information = `Order was send to Outer Space ${updatedOrder.created}`;
+
+            this.props.onClearCart();
+            this.setState({
+                order: {
+                    companyId: 0, 
+                    created: '',
+                    createdBy: '',
+                    paymentMethod: '',
+                    totalPrice: 0,
+                    orderRows: []    
+                },
+                isSuccessful: true 
+            });   
         }
     }
 
@@ -136,22 +104,13 @@ class Checkout extends React.Component<ICheckoutProps, ICheckoutState> {
   
     render(){
 
-        if(this.state.hasError){
-            return(
-                <div className="checkout">
-                    <Message>{this.state.errorMessage}</Message>
-                    <Link to="/" className="link"><span className="shop-btn movie-shop-button">Back to Products</span></Link>
-                </div>
-                
-            )
-        }
-
         if(!this.props.cartItems.length){
             return(
                 <div className="checkout">
                     <h2>Checkout</h2>
 
-                    { (this.state.isSuccessful)? <Message>Thank You!</Message> : 
+                        { (this.state.isSuccessful)? 
+                        <Message><h3>Thank You!</h3><br></br><p>{this.information}</p></Message> : 
                         <Message>There are no products in cart</Message> }
 
                     <Link to="/" className="link"><span className="shop-btn movie-shop-button">Back to Products</span></Link>
@@ -170,10 +129,10 @@ class Checkout extends React.Component<ICheckoutProps, ICheckoutState> {
                         <div className="order-summary">
                                 <h5>Order summary</h5>
                                 {this.props.cartItems.map((item)=>{
-                                    return(<div key={item.product.id} className="product"><p >{item.product.name}</p> <span><b>{item.quantity}</b> {(item.quantity > 1)? `items`: `item`}</span></div>)
+                                    return(<div key={item.product.id} className="product"><p >{item.product.title}</p> <span><b>{item.quantity}</b> {(item.quantity > 1)? `items`: `item`}</span></div>)
                                 })}
                                 
-                                <p className="total"><b>Total price: {this.calculateTotal()} SEK</b></p>
+                                <p className="total"><b>Total price: {this.calculateTotal()} SEK</b></p> 
                             </div>
                         </div>
                     <div>

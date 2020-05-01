@@ -19,7 +19,7 @@ class Cart extends React.Component<ICartProps, {}> {
   calculateTotal(): number {
     let total: number = 0;
     this.props.cartItems.forEach((item)=> {
-      total += (item.product.price * item.quantity);
+      total += (item.price * item.quantity);
     });
     return total;
   }

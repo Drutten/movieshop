@@ -12,4 +12,25 @@
             padding: 0;
         }
     }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        background-color: rgba(255,255,255, 0.6);
+        padding: 20px;
+        font-family: 'Kalam', cursive;
+        font-size: 18px;
+
+        img {
+            width: 60px;
+            margin: 20px;
+            border-radius: 50%;
+        }
+
+        @media(max-width: 400px){
+            flex-direction: column;
+        }
+    }
 }

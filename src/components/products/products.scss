@@ -1,43 +1,52 @@
 
+.form-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
-.search-form, .category-form {
-    display: inline-block;
-    margin: 8px 20px;
+    .search-form, .category-form {
+        display: flex;
+        flex-wrap: nowrap;
+        margin: 8px 20px;
 
-    input[type="text"]{
-        @media (max-width: 320px){
-            width: 100px;
+        @media (max-width: 400px){
+            font-size: 0.8em;
         }
-    }
 
-    
-    span {
-        margin-right: 10px;
-        @media (max-width: 340px){
-            display: block;   
+        input[type="text"]{
+            @media (max-width: 320px){
+                width: 100px;
+            }
         }
-    }
 
-    button {
-        margin-left: 10px;
-        border: 1px solid rgba(83, 116, 121, 0.3);
-        border-radius: 3px;
-        padding: 3px 4px;
-        cursor: pointer;
-    }
-
-    select, input {
-        outline-style: none;
-        height: 32px;   
         
-
-        option {
-            user-select: none;
+        span {
+            margin-right: 10px;
+            @media (max-width: 340px){
+                display: block;   
+            }
         }
-    }
-    
-}
 
+        button {
+            margin-left: 10px;
+            border: 1px solid rgba(83, 116, 121, 0.3);
+            border-radius: 3px;
+            padding: 3px 4px;
+            cursor: pointer;
+        }
+
+        select, input {
+            outline-style: none;
+            height: 32px;   
+            
+
+            option {
+                user-select: none;
+            }
+        }
+        
+    }
+}
 
 .product-wrapper {
     margin: 20px auto;

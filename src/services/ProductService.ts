@@ -19,7 +19,8 @@ export class ProductService implements IProductService {
         try{
             let data: AxiosResponse<any> = await axios.get(url);
             if(data.data){
-                products = data.data;
+                //console.log(data.data.results);
+                products = data.data.results;
             }      
         }catch(e){
             console.log("message: "+e.message);
@@ -45,6 +46,7 @@ export class ProductService implements IProductService {
         try{
             let response: AxiosResponse<any> = await axios.get(url);
             if(response.data){
+                //console.log(response.data);
                 product = response.data;
             }
         }catch(e){

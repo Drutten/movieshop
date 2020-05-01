@@ -8,15 +8,26 @@ interface ICardProps {
 }
 
 export default function Card(props: ICardProps){
-    return(
+
+
+    function getEditedTitle(title: string): string{
+        if(title.length > 60){
+            title = title.substr(0, 58) + '...';
+        }
+        return title;
+    }
+
+
+
+    return( 
         <div className="card" >
             <div className="card-image">
                  
             <img src={props.image} alt={props.name}></img>
                 
             </div>
-            <div className="card-title">
-                {props.name}
+            <div title={props.name} className="card-title">
+                {getEditedTitle(props.name)}
             </div>
             <div className="card-price"><b>{props.price}</b> kr</div>
         </div>   

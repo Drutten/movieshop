@@ -1,14 +1,19 @@
 export default interface IProduct {
-    name: string;
+    title: string;
     id: number;
-    description: string;
-    imageUrl: string;
-    price: number;
-    year: string;
-    productCategory: IProductCategory[];
+    overview: string;
+    poster_path: string;
+    release_date: string
+    genre_ids: number[];
 }
 
-export interface IProductCategory {
-    categoryId: number;
-    category: null;
-}
+
+//https://api.themoviedb.org/3/movie/{movie_id}?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US
+
+//https://api.themoviedb.org/3/movie/latest?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US
+
+//https://api.themoviedb.org/3/movie/top_rated?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US&page=1
+
+//https://api.themoviedb.org/3/movie/popular?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US&page=1
+
+//https://api.themoviedb.org/3/search/movie?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US&query=batman%20&page=1&include_adult=false

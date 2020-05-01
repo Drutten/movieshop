@@ -47,7 +47,7 @@ export default class Products extends React.Component<IProductProps, IProductSta
     
 
     componentDidMount() {
-        this.fetchProducts('http://medieinstitutet-wie-products.azurewebsites.net/api/products');
+        this.fetchProducts('https://api.themoviedb.org/3/movie/top_rated?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US&page=1'); 
     }
 
 
@@ -59,7 +59,7 @@ export default class Products extends React.Component<IProductProps, IProductSta
                 errorText: '',
                 notFound: false
             });
-            this.fetchProducts('http://medieinstitutet-wie-products.azurewebsites.net/api/products');    
+            this.fetchProducts('https://api.themoviedb.org/3/movie/top_rated?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US&page=1');    
         }
     }
 
@@ -80,7 +80,7 @@ export default class Products extends React.Component<IProductProps, IProductSta
             notFound: false,
             search: ''
         });
-        this.fetchProducts(`http://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=${searchText}`);    
+        this.fetchProducts(`https://api.themoviedb.org/3/search/movie?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US&query=${searchText}%20&page=1&include_adult=false`);    
     }
 
 
@@ -99,7 +99,7 @@ export default class Products extends React.Component<IProductProps, IProductSta
             notFound: false,
             search: ''
         });
-        this.fetchProducts(`http://medieinstitutet-wie-products.azurewebsites.net/api/products`, categoryId);
+        this.fetchProducts(`https://api.themoviedb.org/3/movie/top_rated?api_key=c1f020d606cc9bf578a920d153a7c8e2&language=en-US&page=4`, categoryId);
     }
 
 
@@ -118,9 +118,9 @@ export default class Products extends React.Component<IProductProps, IProductSta
             if(categoryId > 0){
                 //If second parameter category id was given
                 const filteredProducts: IProduct[] = [];
-                fetchedProducts.forEach((item)=>{
-                    item.productCategory.forEach((category)=>{
-                        if(category.categoryId === categoryId){
+                fetchedProducts.forEach((item: IProduct)=>{
+                    item.genre_ids.forEach((genre: number)=>{
+                        if(genre === categoryId){
                             filteredProducts.push(item);
                         }
                     });   
@@ -165,28 +165,37 @@ export default class Products extends React.Component<IProductProps, IProductSta
     }
 
 
+    getImageUrl(item: IProduct): string{
+        if(item.poster_path){
+            return `https://image.tmdb.org/t/p/w185${item.poster_path}`;
+        }
+        return 'https://i.postimg.cc/9MbvYYpr/kamera2.png';
+    }
+
+
+    
     
 
 
     render() {
 
-        const forms = <React.Fragment>
+        const forms = <div className="form-container">
             <form className="search-form" onSubmit={(e)=>this.handleSearchSubmit(e)}>
                 <input type="text" placeholder="Movie title" name="search" value={this.state.search} onChange={(e)=>this.handleSearchChange(e)} required></input>
                 <button type="submit" className="movie-shop-button">Search</button>
             </form>
             <form className="category-form" onSubmit={(e)=>this.handleCategorySubmit(e)}>
-                <span>Select category:&nbsp;</span> 
+                <span>Category:&nbsp;</span> 
                 <select value={this.state.category} onChange={(e)=>this.handleCategoryChange(e)}>
                     <option value=""></option>
-                    <option value="5">Action</option>
-                    <option value="6">Thriller</option>
-                    <option value="7">Comedy</option>
-                    <option value="8">Sci-fi</option>
+                    <option value="28">Action</option>
+                    <option value="53">Thriller</option>
+                    <option value="35">Comedy</option>
+                    <option value="878">Sci-fi</option>
                 </select>
                 <button type="submit" className="movie-shop-button">Filter</button>
             </form>
-        </React.Fragment>;
+        </div>; 
         
         
         
@@ -223,7 +232,7 @@ export default class Products extends React.Component<IProductProps, IProductSta
                     {this.state.products.map(item => {
 
                         return (<Link to={`/products/${item.id}`} className="product-link" key={item.id}>
-                            <Card image={item.imageUrl} name={item.name} price={item.price}/>
+                            <Card image={this.getImageUrl(item)} name={item.title} price={200}/>
                         </Link>
                         );
    

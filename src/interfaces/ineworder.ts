@@ -6,6 +6,5 @@ export interface INewOrder {
     createdBy: string;
     paymentMethod: string;
     totalPrice: number;
-    status: number;
     orderRows: INewOrderRow[];
 }
