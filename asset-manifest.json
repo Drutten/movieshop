@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/movieshop/static/css/main.01691d8e.chunk.css",
+    "main.js": "/movieshop/static/js/main.f5888756.chunk.js",
+    "main.js.map": "/movieshop/static/js/main.f5888756.chunk.js.map",
+    "runtime-main.js": "/movieshop/static/js/runtime-main.2df4ac55.js",
+    "runtime-main.js.map": "/movieshop/static/js/runtime-main.2df4ac55.js.map",
+    "static/css/2.de424728.chunk.css": "/movieshop/static/css/2.de424728.chunk.css",
+    "static/js/2.b64b2b08.chunk.js": "/movieshop/static/js/2.b64b2b08.chunk.js",
+    "static/js/2.b64b2b08.chunk.js.map": "/movieshop/static/js/2.b64b2b08.chunk.js.map",
+    "index.html": "/movieshop/index.html",
+    "precache-manifest.38d3564db7624aa799918b36025ae3cb.js": "/movieshop/precache-manifest.38d3564db7624aa799918b36025ae3cb.js",
+    "service-worker.js": "/movieshop/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/movieshop/static/css/2.de424728.chunk.css.map",
+    "static/css/main.01691d8e.chunk.css.map": "/movieshop/static/css/main.01691d8e.chunk.css.map",
+    "static/js/2.b64b2b08.chunk.js.LICENSE.txt": "/movieshop/static/js/2.b64b2b08.chunk.js.LICENSE.txt",
+    "static/media/frulle.gif": "/movieshop/static/media/frulle.ad6e003e.gif",
+    "static/media/kamera.png": "/movieshop/static/media/kamera.31b786b9.png",
+    "static/media/movies.png": "/movieshop/static/media/movies.1227f99f.png",
+    "static/media/profil3.png": "/movieshop/static/media/profil3.c4ef6463.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2df4ac55.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.b64b2b08.chunk.js",
+    "static/css/main.01691d8e.chunk.css",
+    "static/js/main.f5888756.chunk.js"
+  ]
+}
