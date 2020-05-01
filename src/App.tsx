@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';  //BrowserRouter in index.tsx
+import {Switch, Route} from 'react-router-dom';
 import './App.scss';
 import Home from './components/home/Home';
 import About from './components/about/About';
