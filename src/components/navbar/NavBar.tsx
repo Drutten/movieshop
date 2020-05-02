@@ -34,7 +34,7 @@ class NavBar extends React.Component<INavBarProps, {}> {
     return (
       
       <Navbar expand="lg" className="mynav">
-        <Navbar.Brand href="/" className="logo"><img src={camera} alt="logotype"></img></Navbar.Brand>
+        <Link to="/" className="nav-link logo" onClick={this.props.onReload}><img src={camera} alt="logotype"></img></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
