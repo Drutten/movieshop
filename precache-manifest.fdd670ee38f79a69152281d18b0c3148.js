@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ef1adc1482b2a1b462699caf1b902591",
+    "revision": "ab67e9f749bcaf995f80f84008b23618",
     "url": "/movieshop/index.html"
   },
   {
-    "revision": "9824908dcc2725a47b18",
+    "revision": "b5f8b09d2323e7d5c442",
     "url": "/movieshop/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "9aab4029e3d6d051f41e",
-    "url": "/movieshop/static/css/main.01691d8e.chunk.css"
+    "revision": "e29da72d6ac069d644fa",
+    "url": "/movieshop/static/css/main.7d3fc3e8.chunk.css"
   },
   {
-    "revision": "9824908dcc2725a47b18",
-    "url": "/movieshop/static/js/2.b64b2b08.chunk.js"
+    "revision": "b5f8b09d2323e7d5c442",
+    "url": "/movieshop/static/js/2.c136fa49.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/movieshop/static/js/2.b64b2b08.chunk.js.LICENSE.txt"
+    "url": "/movieshop/static/js/2.c136fa49.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9aab4029e3d6d051f41e",
-    "url": "/movieshop/static/js/main.f5888756.chunk.js"
+    "revision": "e29da72d6ac069d644fa",
+    "url": "/movieshop/static/js/main.4f5ce3da.chunk.js"
   },
   {
     "revision": "f2ef284c2af52d327fd8",
