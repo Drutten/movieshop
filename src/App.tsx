@@ -2,7 +2,6 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import './App.scss';
 import Home from './components/home/Home';
-import About from './components/about/About';
 import Contact from './components/contact/Contact';
 import NavBar from './components/navbar/NavBar';
 import Products from './components/products/Products';
@@ -148,9 +147,6 @@ class App extends React.Component<{}, IAppState> {
           <Switch>
             <Route exact path="/">  
               <Home service={this.productService} toggledReload={this.state.toggledReload} onReload={this.handleReload}/>    
-            </Route>
-            <Route exact path="/about"> 
-              <About/>
             </Route>
             <Route exact path="/contact">  
               <Contact/>

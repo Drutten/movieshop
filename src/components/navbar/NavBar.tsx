@@ -40,7 +40,6 @@ class NavBar extends React.Component<INavBarProps, {}> {
           <Nav className="mr-auto">
             <Link to="/" className="nav-link" onClick={this.props.onReload}>Home</Link>
             <Link to="/products" className="nav-link" onClick={this.props.onReload}>Products</Link>
-            <Link to="/about" className="nav-link">About</Link>
             <Link to="/contact" className="nav-link">Contact</Link>
           </Nav>
           
