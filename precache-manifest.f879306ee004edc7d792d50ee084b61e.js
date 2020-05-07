@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ab67e9f749bcaf995f80f84008b23618",
+    "revision": "6600dea2c8388c281151dbf946074b42",
     "url": "/movieshop/index.html"
   },
   {
-    "revision": "b5f8b09d2323e7d5c442",
+    "revision": "45438f7e764f7c25bba8",
     "url": "/movieshop/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "e29da72d6ac069d644fa",
-    "url": "/movieshop/static/css/main.7d3fc3e8.chunk.css"
+    "revision": "1b3504a1d80580018b62",
+    "url": "/movieshop/static/css/main.6d598f3b.chunk.css"
   },
   {
-    "revision": "b5f8b09d2323e7d5c442",
-    "url": "/movieshop/static/js/2.c136fa49.chunk.js"
+    "revision": "45438f7e764f7c25bba8",
+    "url": "/movieshop/static/js/2.fe1c8e9f.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/movieshop/static/js/2.c136fa49.chunk.js.LICENSE.txt"
+    "url": "/movieshop/static/js/2.fe1c8e9f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e29da72d6ac069d644fa",
-    "url": "/movieshop/static/js/main.4f5ce3da.chunk.js"
+    "revision": "1b3504a1d80580018b62",
+    "url": "/movieshop/static/js/main.3ce26b1c.chunk.js"
   },
   {
     "revision": "f2ef284c2af52d327fd8",
@@ -34,10 +34,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "31b786b9ffe00f5216ce29ba075fd5f1",
     "url": "/movieshop/static/media/kamera.31b786b9.png"
-  },
-  {
-    "revision": "1227f99f265708dd6ac5f4090c4bef20",
-    "url": "/movieshop/static/media/movies.1227f99f.png"
   },
   {
     "revision": "c4ef64634aa9194d83a479483edce23f",

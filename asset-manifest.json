@@ -1,29 +1,28 @@
 {
   "files": {
-    "main.css": "/movieshop/static/css/main.7d3fc3e8.chunk.css",
-    "main.js": "/movieshop/static/js/main.4f5ce3da.chunk.js",
-    "main.js.map": "/movieshop/static/js/main.4f5ce3da.chunk.js.map",
+    "main.css": "/movieshop/static/css/main.6d598f3b.chunk.css",
+    "main.js": "/movieshop/static/js/main.3ce26b1c.chunk.js",
+    "main.js.map": "/movieshop/static/js/main.3ce26b1c.chunk.js.map",
     "runtime-main.js": "/movieshop/static/js/runtime-main.2df4ac55.js",
     "runtime-main.js.map": "/movieshop/static/js/runtime-main.2df4ac55.js.map",
     "static/css/2.de424728.chunk.css": "/movieshop/static/css/2.de424728.chunk.css",
-    "static/js/2.c136fa49.chunk.js": "/movieshop/static/js/2.c136fa49.chunk.js",
-    "static/js/2.c136fa49.chunk.js.map": "/movieshop/static/js/2.c136fa49.chunk.js.map",
+    "static/js/2.fe1c8e9f.chunk.js": "/movieshop/static/js/2.fe1c8e9f.chunk.js",
+    "static/js/2.fe1c8e9f.chunk.js.map": "/movieshop/static/js/2.fe1c8e9f.chunk.js.map",
     "index.html": "/movieshop/index.html",
-    "precache-manifest.fdd670ee38f79a69152281d18b0c3148.js": "/movieshop/precache-manifest.fdd670ee38f79a69152281d18b0c3148.js",
+    "precache-manifest.f879306ee004edc7d792d50ee084b61e.js": "/movieshop/precache-manifest.f879306ee004edc7d792d50ee084b61e.js",
     "service-worker.js": "/movieshop/service-worker.js",
     "static/css/2.de424728.chunk.css.map": "/movieshop/static/css/2.de424728.chunk.css.map",
-    "static/css/main.7d3fc3e8.chunk.css.map": "/movieshop/static/css/main.7d3fc3e8.chunk.css.map",
-    "static/js/2.c136fa49.chunk.js.LICENSE.txt": "/movieshop/static/js/2.c136fa49.chunk.js.LICENSE.txt",
+    "static/css/main.6d598f3b.chunk.css.map": "/movieshop/static/css/main.6d598f3b.chunk.css.map",
+    "static/js/2.fe1c8e9f.chunk.js.LICENSE.txt": "/movieshop/static/js/2.fe1c8e9f.chunk.js.LICENSE.txt",
     "static/media/frulle.gif": "/movieshop/static/media/frulle.ad6e003e.gif",
     "static/media/kamera.png": "/movieshop/static/media/kamera.31b786b9.png",
-    "static/media/movies.png": "/movieshop/static/media/movies.1227f99f.png",
     "static/media/profil3.png": "/movieshop/static/media/profil3.c4ef6463.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2df4ac55.js",
     "static/css/2.de424728.chunk.css",
-    "static/js/2.c136fa49.chunk.js",
-    "static/css/main.7d3fc3e8.chunk.css",
-    "static/js/main.4f5ce3da.chunk.js"
+    "static/js/2.fe1c8e9f.chunk.js",
+    "static/css/main.6d598f3b.chunk.css",
+    "static/js/main.3ce26b1c.chunk.js"
   ]
 }
